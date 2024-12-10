@@ -140,4 +140,39 @@ body {
       transform: translateY(-200px) scale(0.8);
     }
   }
+  .pagination {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    background-color: #e63946;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination button:hover:not(:disabled) {
+    background-color: #d62828;
+  }
+  .page-content {
+    transition: opacity 0.5s, transform 0.5s;
+    opacity: 1;
+    transform: translateX(0);
+  }
+  
+  .page-content.fade {
+    opacity: 0;
+    transform: translateX(-20px); /* Or any desired direction */
+  }
   
