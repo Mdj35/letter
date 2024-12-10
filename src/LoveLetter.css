@@ -1,0 +1,143 @@
+/* General Styling */
+body {
+    margin: 0;
+    font-family: "Arial", sans-serif;
+    background-color: #ffe8e8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    transition: background-color 1s ease-in-out;
+  }
+  
+  .love-letter-container {
+    text-align: center;
+    position: relative;
+    transition: background-color 1s ease-in-out;
+  }
+  
+  /* Envelope Styles */
+  .envelope {
+    width: 320px;
+    height: 200px;
+    background: #e63946;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+  }
+  
+  .envelope.open {
+    transform: translateY(-10px);
+  }
+  
+  /* Ribbons */
+  .ribbon {
+    position: absolute;
+    width: 320px;
+    height: 20px;
+    top: 50%;
+    left: 0;
+    background: #d62828;
+  }
+  
+  .ribbon-line {
+    position: absolute;
+    width: 20px;
+    height: 200px;
+    left: 50%;
+    top: 0;
+    background: #d62828;
+  }
+  
+  .ribbon-line-bottom {
+    position: absolute;
+    width: 20px;
+    height: 200px;
+    left: 50%;
+    bottom: 0;
+    background: #d62828;
+  }
+  
+  /* Letter Styles */
+  .letter {
+    position: absolute;
+    top: 100%;
+    width: calc(100% - 20px);
+    height: 300px;
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    font-size: 16px;
+    line-height: 1.8;
+    color: #333;
+    transform-origin: top center;
+    transition: top 0.5s ease-in-out;
+    overflow-y: auto;
+    margin: 0 auto;
+  }
+  
+  .letter.visible {
+    top: 0px;
+  }
+  
+  .letter p {
+    margin: 0;
+    text-align: left;
+  }
+  
+  /* Flowers Animation */
+  .flowers-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  .flower {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-image: url("https://th.bing.com/th/id/OIP.MabhjJGBIA2aarbg4xMR4AHaJv?w=128&h=180&c=7&r=0&o=5&pid=1.7");
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation: floatUp 2s ease-in-out infinite;
+  }
+  
+  .flower-1 {
+    left: 20%;
+    animation-delay: 0s;
+  }
+  
+  .flower-2 {
+    left: 50%;
+    animation-delay: 0.2s;
+  }
+  
+  .flower-3 {
+    left: 80%;
+    animation-delay: 0.4s;
+  }
+  
+  @keyframes floatUp {
+    0% {
+      opacity: 0;
+      transform: translateY(100px) scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: translateY(-10px) scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateY(-200px) scale(0.8);
+    }
+  }
+  
