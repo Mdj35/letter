@@ -39,7 +39,8 @@ const LoveLetter = ({ onToggle }) => {
       setPageAnimation("slide-out-left"); // Start slide-out animation
       setTimeout(() => {
         setCurrentPage((prev) => prev + 1); // Change the page after animation
-        setPageAnimation("slide-in-right"); // Start slide-in animation
+        setPageAnimation("bounce slide-in-right");
+; // Start slide-in animation
       }, 300); // Match this timeout with your CSS animation duration
     }
   };
