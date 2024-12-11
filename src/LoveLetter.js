@@ -20,15 +20,19 @@ const LoveLetter = ({ onToggle }) => {
   };
 
   const letterPages = [
-    `Dear Love, 
-    You bring light into my darkest days and joy to my heart. Life feels 
-    complete with you by my side. Thank you for being my everything.`,
-    `Every moment with you is a memory I cherish forever. 
-    Your smile is my sunshine; your presence is my peace. 
-    Together, we create a world of love.`,
-    `Forever yours, 
-    ❤️`,
+    `Hi dae...I just want to greet you a Merry Christmas and a happy new year....`,
+    `Unta ganahan kas akong mga gifts na gihatag saimo dae...`,
+    `and thank you for being my inspiration this semester..`,
+    `ikaw jd ang reason dae nganong batak kayko ug ganado ko mulihok sa mga lihokonon HAHAHAHAH...`,
+    `and I just want to say sorry pd if naay times na sobra na akong pag act sa imoha...`,
+    `and unta padayun lang gihapon ta this coming year...`,
+    `and even though di pa pd ka ready I just want you to know pd nga naa rajd ko dri permi willing maghulat saimoha...`,
+    `and i enjoy pd imong vacation sa Laguna dae...`,
+    `that's all dae...once again to the girl of my dreams..`,
+    `have a blessed Merry Christmas and a Happy New Year💖💖💖💖
+`,
   ];
+
 
   const nextPage = () => {
     if (currentPage < letterPages.length - 1) {
