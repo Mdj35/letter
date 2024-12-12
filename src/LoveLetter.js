@@ -1,24 +1,37 @@
-import React, { useState } from "react";
-import "./LoveLetter.css";
+import React, { useState } from "react";  
+import "./LoveLetter.css";  
+import PasswordModal from "./PasswordModal"; // Import the PasswordModal component  
 
-const LoveLetter = ({ onToggle }) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [currentPage, setCurrentPage] = useState(0);
-  const [pageAnimation, setPageAnimation] = useState(""); // New state for page animations
+const LoveLetter = ({ onToggle }) => {  
+  const [isOpen, setIsOpen] = useState(false);  
+  const [currentPage, setCurrentPage] = useState(0);  
+  const [pageAnimation, setPageAnimation] = useState("");  
+  const [isPasswordModalOpen, setIsPasswordModalOpen] = useState(false);  
+  const [isPasswordCorrect, setIsPasswordCorrect] = useState(false);  
+  const correctPassword = "030203"; // Set your desired password here  
 
-  const handleToggle = () => {
-    if (!isOpen) {
-      setIsOpen(true);
-      onToggle(true); // Notify parent component that the envelope is open
-    }
-  };
+  const handleToggle = () => {  
+    if (!isOpen) {  
+      setIsPasswordModalOpen(true); // Open the password modal  
+    }  
+  };  
 
-  const closeLetter = () => {
-    setIsOpen(false);
-    setCurrentPage(0); // Reset to the first page (optional)
-    onToggle(false); // Notify parent component that the envelope is closed
-  };
+  const closeLetter = () => {  
+    setIsOpen(false);  
+    setCurrentPage(0);  
+    onToggle(false);  
+  };  
 
+  const handlePasswordSubmit = (password) => {  
+    if (password === correctPassword) {  
+      setIsPasswordCorrect(true);  
+      setIsOpen(true);  
+      setIsPasswordModalOpen(false);  
+      onToggle(true);  
+    } else {  
+      alert("Incorrect password. Please try again.");  
+    }  
+  };  
   const letterPages = [
     `Hi dae...I just want to greet you a Merry Christmas and a happy new year....`,
     `Unta ganahan kas akong mga gifts na gihatag saimo dae...`,
@@ -74,40 +87,46 @@ const LoveLetter = ({ onToggle }) => {
     return petals;
   };
 
-  return (
-    <div className="love-letter-container">
-      {renderPetals()}
-      <div className={`envelope ${isOpen ? "open" : ""}`} onClick={handleToggle}>
-        <div className="ribbon"></div>
-        <div className="ribbon-line"></div>
-        <div className="ribbon-line-bottom"></div>
-        <div className={`letter ${isOpen ? "visible" : ""}`}>
-          <div className={`page-content ${pageAnimation}`}>
-            <p>{letterPages[currentPage]}</p>
-          </div>
-          {isOpen && (
-            <div className="pagination">
-              <button onClick={prevPage} disabled={currentPage === 0}>
-                Previous
-              </button>
-              {currentPage === letterPages.length - 1 ? (
-                <button onClick={closeLetter}>Close</button>
-              ) : (
-                <button onClick={nextPage}>Next</button>
-              )}
-            </div>
-          )}
-        </div>
-      </div>
-      {isOpen && (
-        <div className="flowers-container">
-          <div className="flower flower-1"></div>
-          <div className="flower flower-2"></div>
-          <div className="flower flower-3"></div>
-        </div>
-      )}
-    </div>
-  );
-};
+  return (  
+    <div className="love-letter-container">  
+      {renderPetals()}  
+      <div className={`envelope ${isOpen ? "open" : ""}`} onClick={handleToggle}>  
+        <div className="ribbon"></div>  
+        <div className="ribbon-line"></div>  
+        <div className="ribbon-line-bottom"></div>  
+        <div className={`letter ${isOpen ? "visible" : ""}`}>  
+          <div className={`page-content ${pageAnimation}`}>  
+            <p>{letterPages[currentPage]}</p>  
+          </div>  
+          {isOpen && (  
+            <div className="pagination">  
+              <button onClick={prevPage} disabled={currentPage === 0}>  
+                Previous  
+              </button>  
+              {currentPage === letterPages.length - 1 ? (  
+                <button onClick={closeLetter}>Close</button>  
+              ) : (  
+                <button onClick={nextPage}>Next</button>  
+              )}  
+            </div>  
+          )}  
+        </div>  
+      </div>  
+      {isOpen && (  
+        <div className="flowers-container">  
+          <div className="flower flower-1"></div>  
+          <div className="flower flower-2"></div>  
+          <div className="flower flower-3"></div>  
+        </div>  
+      )}  
+      <PasswordModal   
+        isOpen={isPasswordModalOpen}   
+        onClose={() => setIsPasswordModalOpen(false)}   
+        onSubmit={handlePasswordSubmit}   
+      />  
+    </div>  
+  );  
+};  
+
 
 export default LoveLetter;
