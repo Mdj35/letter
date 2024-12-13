@@ -33,7 +33,7 @@ const LoveLetter = ({ onToggle }) => {
     }  
   };  
   const letterPages = [
-    `Hi dae...I just want to greet you a Merry Christmas and a happy new year....`,
+    `Hi dae...I just want to wish you a Merry Christmas and a happy new year....`,
     `Unta ganahan kas akong mga gifts na gihatag saimo dae...`,
     `and thank you for being my inspiration this semester..`,
     `ikaw jd ang reason dae nganong batak kayko ug ganado ko mulihok sa mga lihokonon HAHAHAHAH...`,
@@ -42,7 +42,7 @@ const LoveLetter = ({ onToggle }) => {
     `and even though di pa pd ka ready I just want you to know pd nga naa rajd ko dri permi willing maghulat saimoha...`,
     `and i enjoy pd imong vacation sa Laguna dae...`,
     `that's all dae...once again to the girl of my dreams..`,
-    `have a blessed Merry Christmas and a Happy New Year💖💖💖💖
+    `have a Blessed Merry Christmas and a Happy New Year💖💖💖💖
 `,
   ];
 
